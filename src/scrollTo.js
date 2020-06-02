@@ -80,7 +80,6 @@ class ScrollToVertical {
     let nestStep = this.scrollOption.itemsStep[this.scrollOption.thisStep];
     if (nestStep || nestStep === 0) {
       let isDownNext = true;
-      // определенеи вниз + если есть куда крутить
       if (this.scrollOption.isDown && nestStep > this.scrollOption.limitScrollDown) {
         isDownNext = false;
       }
