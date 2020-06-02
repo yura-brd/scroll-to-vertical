@@ -9,6 +9,10 @@
   "author": "Yurii Kopot <yura.brd@gmail.com>",
   "license": "ISC",
   "browserslist": "> 0.25%, not dead",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/yura-brd/scroll-to-vertical.git"
+	},
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
