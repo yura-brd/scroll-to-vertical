@@ -1,4 +1,4 @@
-<h1>Scroll To</h1>
+<h1>Scroll To Vertical</h1>
 
 `Smooth scroll to element or position at page. Takes into account document height for elements low on the page.`
 
