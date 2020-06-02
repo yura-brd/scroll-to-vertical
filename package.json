@@ -1,6 +1,6 @@
 {
   "name": "scroll-to-vertical",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "scroll to element or position",
   "main": "dist/scrollTo.js",
   "scripts": {
