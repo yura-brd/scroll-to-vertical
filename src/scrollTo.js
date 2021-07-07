@@ -44,10 +44,15 @@ class ScrollToVertical {
           this.startEventCallback && this.startEventCallback(e, this, $el, this.typeToScroll);
           this.stepAnimationInit(this.typeToScroll - this.typeToScrollAdd, $el);
         } else {
-          const $scrollToElement = document.querySelector($el.getAttribute('href'));
-          const endScroll = this.findEndPosition($scrollToElement) - this.typeToScrollAdd;
-          this.startEventCallback && this.startEventCallback(e, this, $el, endScroll);
-          this.stepAnimationInit(endScroll, $el);
+          const $scrollToElement = document.querySelector($el.getAttribute(this.typeToScroll));
+          if ($scrollToElement) {
+            const resOffset = this.findEndPosition($scrollToElement);
+            const endScroll = resOffset - this.typeToScrollAdd;
+            this.startEventCallback && this.startEventCallback(e, this, $el, endScroll);
+            this.stepAnimationInit(endScroll, $el);
+          } else {
+            console.warn('not found element' );
+          }
         }
       });
     });
@@ -93,6 +98,9 @@ class ScrollToVertical {
     }
   }
   findEndPosition(element) {
+    if (!element) {
+      return null;
+    }
     let res = 0;
     function resVal () {
       res += element.offsetTop;
