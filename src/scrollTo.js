@@ -40,8 +40,9 @@ class ScrollToVertical {
         const resOffset = this.findEndPosition($scrollToElement);
         this.stepAnimationInit(resOffset, null);
       }
-    } else if (typeof offset === 'object' && offset instanceof HTMLElement) {
-      this.stepAnimationInit(offset, null);
+    } else if (offset instanceof HTMLElement) {
+      const resOffset = this.findEndPosition($scrollToElement);
+      this.stepAnimationInit(resOffset, null);
     }
   }
 
