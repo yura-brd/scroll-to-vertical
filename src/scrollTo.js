@@ -11,7 +11,7 @@ class ScrollToVertical {
     this.supportsNativeSmoothScroll = 'scrollBehavior' in document.documentElement.style && this.isBehavior;
 
     this.stepAnimation = this.stepAnimation.bind(this);
-
+    
     if (typeof options.typeToScroll === 'function') {
       this.typeToScroll = options.typeToScroll.bind(this)
     } else {
@@ -26,6 +26,12 @@ class ScrollToVertical {
     this.scrollOption = {};
     
     this.selector && this.init();
+  }
+  
+  simulationScroll(offset) {
+    if (typeof offset === 'number') {
+      this.stepAnimationInit(offset, null);
+    }
   }
 
   init () {
