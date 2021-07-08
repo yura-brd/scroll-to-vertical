@@ -29,7 +29,18 @@ class ScrollToVertical {
   }
   
   simulationScroll(offset) {
-    if (typeof offset === 'number') {
+    /**
+     offset: number, string - selector, DOM ELEMENT
+     */
+    if (typeof offset === 'number' || typeof parseInt(offset) === 'number') {
+      this.stepAnimationInit(parseInt(offset), null);
+    } else if (typeof offset === 'string') {
+      const $scrollToElement = document.querySelector(offset);
+      if ($scrollToElement) {
+        const resOffset = this.findEndPosition($scrollToElement);
+        this.stepAnimationInit(resOffset, null);
+      }
+    } else if (typeof offset === 'object' && offset instanceof HTMLElement) {
       this.stepAnimationInit(offset, null);
     }
   }
