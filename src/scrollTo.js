@@ -32,16 +32,20 @@ class ScrollToVertical {
     /**
      offset: number, string - selector, DOM ELEMENT
      */
-    if (typeof offset === 'number' || typeof parseInt(offset) === 'number') {
-      this.stepAnimationInit(parseInt(offset), null);
+    if (typeof offset === 'number') {
+      this.stepAnimationInit(offset, null);
     } else if (typeof offset === 'string') {
-      const $scrollToElement = document.querySelector(offset);
-      if ($scrollToElement) {
-        const resOffset = this.findEndPosition($scrollToElement);
-        this.stepAnimationInit(resOffset, null);
+      if (typeof parseInt(offset) === 'number') {
+        this.stepAnimationInit(parseInt(offset), null);
+      } else {
+        const $scrollToElement = document.querySelector(offset);
+        if ($scrollToElement) {
+          const resOffset = this.findEndPosition($scrollToElement);
+          this.stepAnimationInit(resOffset, null);
+        }
       }
     } else if (offset instanceof HTMLElement) {
-      const resOffset = this.findEndPosition($scrollToElement);
+      const resOffset = this.findEndPosition(offset);
       this.stepAnimationInit(resOffset, null);
     }
   }
