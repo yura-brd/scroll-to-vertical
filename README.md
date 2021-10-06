@@ -92,7 +92,7 @@ Click on the link. Scroll to the element whose selector is registered in the hre
     }, 2000);
     setTimeout(() => {
         /** scroll to the DOM element (by DOM ELEMENT). And indent for the end point of the scroll */
-        simulateScroll.simulationScroll(document.getElementById('#content'), -50)
+        simulateScroll.simulationScroll(document.getElementById('content'), -50)
     }, 3000);
 </script>
 ```
