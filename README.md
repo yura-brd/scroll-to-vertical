@@ -46,6 +46,9 @@ the variable `ScrollToVertical` attached to `window` or `this` depending on what
 | **startEventCallback** |  callback function that is called before eventType (click) <p> **parameters**: event, this, element, endScrollPosition </p>  |
 | **beforeAnimationCallback** |   callback function that is called before start animation  <p> **parameters**: this, element, endScrollPosition </p>  |
 | **afterAnimationCallback** |  callback function that is called after finish animation*  <br />  *not working on native window.scrollTo (isBehavior=true) <p> **parameters**: this - instance class  </p>  |
+| **Methods** |    |
+| **simulationScroll** |  scrolls to the desired (**dynamic**) point  <br />  takes two parameters a **scroll point** (number, selector or DOM ELEMENT) and **indent for the end point of the scroll** |
+
 
 ## Example Usage
 ``` 
@@ -66,13 +69,31 @@ new ScrollToVertical('.js_link_nav_scroll', {
 ```
 #### default (no settings)
 ```
-Сlick on the link. Scroll to the element whose selector is registered in the href
+Click on the link. Scroll to the element whose selector is registered in the href
 
 <a class="js_link_nav_scroll" href="#section_1">scroll to section_1</a>
 <div id="#section_1"></div>
 
 <script>  
     new ScrollToVertical('.js_link_nav_scroll');
+</script>
+```
+#### Dynamic value - method simulationScroll
+```
+<script>  
+    const simulateScroll = new  ScrollToVertical('empty');
+    /** scroll to the point */
+    setTimeout(() => {
+        simulateScroll.simulationScroll(1120)
+    }, 1000);
+    setTimeout(() => {
+        /** scroll to the DOM element (by selector). And indent for the end point of the scroll */
+        simulateScroll.simulationScroll('#content', -50)
+    }, 2000);
+    setTimeout(() => {
+        /** scroll to the DOM element (by DOM ELEMENT). And indent for the end point of the scroll */
+        simulateScroll.simulationScroll(document.getElementById('#content'), -50)
+    }, 3000);
 </script>
 ```
 ## Browser Support

@@ -47,3 +47,18 @@ new ScrollToVertical('.bottom', {
     return document.documentElement.scrollHeight
   }
 });
+
+
+const simulateScroll = new  ScrollToVertical('empty');
+/** scroll to the point */
+setTimeout(() => {
+  simulateScroll.simulationScroll(1120)
+}, 1000);
+setTimeout(() => {
+  /** scroll to the DOM element (by selector). And indent for the end point of the scroll */
+  simulateScroll.simulationScroll('#item-7', -50)
+}, 2000);
+setTimeout(() => {
+  /** scroll to the DOM element (by DOM ELEMENT). And indent for the end point of the scroll */
+  simulateScroll.simulationScroll(document.getElementById('item-2'), -50)
+}, 3000);
